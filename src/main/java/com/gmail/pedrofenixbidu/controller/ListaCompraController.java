@@ -74,7 +74,7 @@ public class ListaCompraController {
 		if (productO.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado. ");
 
-		}{{{}}}
+		}
 		var listaCompraModel = productO.get();
 		BeanUtils.copyProperties(listaCompraRecordDto, listaCompraModel);
 
