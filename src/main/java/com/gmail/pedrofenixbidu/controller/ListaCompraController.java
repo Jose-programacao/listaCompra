@@ -43,10 +43,10 @@ public class ListaCompraController {
 
 	// -----------------------------------------------------------------------------------------------------------------------
 	@PostMapping("/compra")
-	public ResponseEntity<?> salvarCompra(@RequestBody @Valid ListaCompraRecordDto obj) {
-		var listaCompraServico = new ListaCompraModel();
-		BeanUtils.copyProperties(obj, listaCompraServico);
-		return ResponseEntity.status(HttpStatus.CREATED).body(obj);
+	public ResponseEntity<ListaCompraModel> salvarCompra(@RequestBody @Valid ListaCompraRecordDto listaCompraRecordDto) {
+		var listaCompraModel = new ListaCompraModel();
+		BeanUtils.copyProperties(listaCompraRecordDto, listaCompraModel);
+		return ResponseEntity.status(HttpStatus.CREATED).body(listaCompraRepositories.save(listaCompraModel));
 
 	}
 
