@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gmail.pedrofenixbidu.dtos.ListaCompraRecordDto;
-import com.gmail.pedrofenixbidu.model.ListaCompraMensagem;
 import com.gmail.pedrofenixbidu.model.ListaCompraModel;
 import com.gmail.pedrofenixbidu.repositories.ListaCompraRepositories;
 
@@ -26,12 +25,6 @@ import jakarta.validation.Valid;
 @RestController
 public class ListaCompraController {
 
-
-
-	@Autowired
-	ListaCompraMensagem listaCompraMensagem;
-	
-	
 	@Autowired
 	ListaCompraRepositories listaCompraRepositories;
 
