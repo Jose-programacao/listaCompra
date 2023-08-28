@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gmail.pedrofenixbidu.dtos.ListaCompraRecordDto;
+import com.gmail.pedrofenixbidu.model.ListaCompraMensagem;
 import com.gmail.pedrofenixbidu.model.ListaCompraModel;
 import com.gmail.pedrofenixbidu.repositories.ListaCompraRepositories;
 import com.gmail.pedrofenixbidu.servico.ListaCompraServico;
@@ -27,8 +29,11 @@ import jakarta.validation.Valid;
 public class ListaCompraController {
 
 
+
 	@Autowired
-	ListaCompraModel listaCompraModel;
+	ListaCompraMensagem listaCompraMensagem;
+	
+	
 
 	@Autowired
 	ListaCompraServico listaCompraServico;
@@ -98,3 +103,4 @@ public class ListaCompraController {
 		return ResponseEntity.status(HttpStatus.OK).body("Produto deletado. ");
 	}
 }
+
