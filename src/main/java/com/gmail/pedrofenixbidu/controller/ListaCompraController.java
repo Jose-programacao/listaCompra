@@ -19,23 +19,29 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gmail.pedrofenixbidu.dtos.ListaCompraRecordDto;
 import com.gmail.pedrofenixbidu.model.ListaCompraModel;
 import com.gmail.pedrofenixbidu.repositories.ListaCompraRepositories;
+import com.gmail.pedrofenixbidu.servico.ListaCompraServico;
 
 import jakarta.validation.Valid;
 
 @RestController
 public class ListaCompraController {
 
+
+	@Autowired
+	ListaCompraModel listaCompraModel;
+
+	@Autowired
+	ListaCompraServico listaCompraServico;
+
 	@Autowired
 	ListaCompraRepositories listaCompraRepositories;
 
 	// -----------------------------------------------------------------------------------------------------------------------
 	@PostMapping("/compra")
-	public ResponseEntity<ListaCompraModel> salvarCompra(
-			@RequestBody @Valid ListaCompraRecordDto listaCompraRecordDto) {
-		var listaCompraModel = new ListaCompraModel();
-		BeanUtils.copyProperties(listaCompraRecordDto, listaCompraModel);
-
-		return ResponseEntity.status(HttpStatus.CREATED).body(listaCompraRepositories.save(listaCompraModel));
+	public ResponseEntity<?> salvarCompra(@RequestBody @Valid ListaCompraRecordDto obj) {
+		var listaCompraServico = new ListaCompraModel();
+		BeanUtils.copyProperties(obj, listaCompraServico);
+		return ResponseEntity.status(HttpStatus.CREATED).body(obj);
 
 	}
 
@@ -52,7 +58,7 @@ public class ListaCompraController {
 		 ^gerougheuo
 		 ~herbgireb
 		 ?ththhtrçio
-		 TODO fhmgj,hk
+		 
 		 */
 	// ---------------------------------------------------------------------------------------------------------------------------
 	@GetMapping("/compra/{id}")

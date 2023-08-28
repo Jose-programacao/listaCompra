@@ -17,7 +17,7 @@ public class ListaCompraModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 //
 //
-//TODO:FAZER AMANHÃ AS 
+
 /*ESSE É O PLADÃO 
 
 	!eu estou lascada
