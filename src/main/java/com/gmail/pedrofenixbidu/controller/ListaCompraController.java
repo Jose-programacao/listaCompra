@@ -54,7 +54,7 @@ public class ListaCompraController {
 		 */
 	// ---------------------------------------------------------------------------------------------------------------------------
 	@GetMapping("/compra/{id}")
-	public ResponseEntity<Object> getOnecompra(@PathVariable(value = "id") UUID id) {
+	public ResponseEntity<Object> getOnecompra(@PathVariable UUID id) {
 		Optional<ListaCompraModel> productO = listaCompraRepositories.findById(id);
 		if (productO.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado.");
@@ -65,7 +65,7 @@ public class ListaCompraController {
 	// -------------------------------------------------------------------------------------------------------------------------
 
 	@PutMapping("/compra/{id}")
-	public ResponseEntity<Object> updateCompra(@PathVariable(value = "id") UUID id,
+	public ResponseEntity<Object> updateCompra(@PathVariable UUID id,
 			@RequestBody @Valid ListaCompraRecordDto listaCompraRecordDto) {
 
 		Optional<ListaCompraModel> productO = listaCompraRepositories.findById(id);
@@ -81,7 +81,7 @@ public class ListaCompraController {
 
 	// ----------------------------------------------------------------------------------------------------------------------
 	@DeleteMapping("/compra/{id}")
-	public ResponseEntity<Object> deleteCompra(@PathVariable(value = "id") UUID id) {
+	public ResponseEntity<Object> deleteCompra(@PathVariable UUID id) {
 		Optional<ListaCompraModel> productO = listaCompraRepositories.findById(id);
 		if (productO.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado. ");
